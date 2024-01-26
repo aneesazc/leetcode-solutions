@@ -18,7 +18,7 @@ class Solution:
         return hashMap1 == hashMap2
 
 
-
+# O(n), O(n) Time and Space 
 class Solution2:
     def isAnagram(self, s: str, t: str) -> bool:
         if len(s) != len(t):
