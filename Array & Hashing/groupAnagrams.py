@@ -10,9 +10,12 @@ class Solution:
             count = [0] * 26 # a....z
 
             for c in s:
-                count[ord(c) - ord("a")] += 1
+                count[ord(c) - ord("a")] += 1  # this lets us map a -> 0 and z -> 25
+                # c -> 99 - 97 = 2
+                # b -> 98 - 97 = 1
+                # a -> 97 - 97 = 0 and so on
 
-            res[tuple(count)].append(s)
+            res[tuple(count)].append(s)  # python doesn't allow list as keys, so turn it into tuple
 
         return res.values()
 
