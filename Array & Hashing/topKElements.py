@@ -18,7 +18,7 @@ class Solution:
         res = []  # Initialize the result list to store the top k frequent elements.
         # Iterate over the frequency list in reverse order to start with the most frequent.
         for i in range(len(freq) - 1, 0, -1):
-            for j in freq[i]:  # Iterate over elements in the current frequency list.
-                res.append(j)  # Add the element to the result list.
+            for n in freq[i]:  # Iterate over elements in the current frequency list.
+                res.append(n)  # Add the element to the result list.
                 if len(res) == k:  # If the result list has k elements, return it.
                     return res
