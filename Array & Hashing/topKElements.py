@@ -1,4 +1,5 @@
-# O (n)
+# With heap, it would be O(klogn) but the approach below is-
+# O(n)
 
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
