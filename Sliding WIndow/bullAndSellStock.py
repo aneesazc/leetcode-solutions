@@ -16,3 +16,37 @@ class Solution:
                 maxP = max(maxP, currP)
 
         return maxP
+
+
+
+
+
+class Solution2:
+    def maxProfit(self, prices: List[int]) -> int:
+        res = 0
+        L = 0
+
+        for R in range(len(prices)):
+            currProf = prices[R] - prices[L]
+            if currProf <= 0:
+                L = R
+            else:
+                res = max(res, currProf)
+
+        return res
+
+
+
+
+class Solution3:
+    def maxProfit(self, prices: List[int]) -> int:
+        res = 0
+        
+        lowest = prices[0]
+        for price in prices:
+            if price < lowest:
+                lowest = price
+            res = max(res, price - lowest)
+        return res
+
+            
