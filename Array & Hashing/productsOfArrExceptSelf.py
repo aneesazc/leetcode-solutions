@@ -9,10 +9,12 @@ class Solution:
             for i in range(len(nums)):
                 answer[i] = prefix
                 prefix = prefix * nums[i]
+            # answer = [1, 1, 2, 6]
                 
             for i in range(len(nums) - 1, -1, -1):
                 answer[i] *= postfix
                 postfix = postfix * nums[i]
+            # answer = [1*24, 1*12, 2*4, 6*1]
                 
             return answer
 
