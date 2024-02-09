@@ -6,8 +6,10 @@ class Solution:
         longest = 0
 
         for n in nums:
+            # check if it's the start of a sequence
             if (n - 1) not in numSet:
                 length = 1
+                # if it is, then check if each conseq number(n+1, n+2 and so on) is part of the numSet. If it is, we increase the length
                 while (n + length) in numSet:
                     length += 1
                 longest = max(longest, length)
