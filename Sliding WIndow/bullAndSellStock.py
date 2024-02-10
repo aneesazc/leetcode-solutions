@@ -7,9 +7,11 @@ class Solution:
 
         # Iterate through prices with right pointer
         for R in range(1, len(prices)):
-            # If current price is lower than prices[L], move L to R
+            # If the current price is lower than the price at L, it means we have found a new lower price to buy at.
+            # Therefore, we move L to R because buying at the current price (R) would allow for a potentially higher profit in the future
+            # than continuing with the higher buy price at L. This is because we aim to maximize the profit by minimizing the buy price.
             if prices[R] < prices[L]:
-                L = R
+                L = R # we found a new low(which is prices[R])? we buy at that price now for maximum profit by moving L to R
             else:
                 # Calculate current profit and update maxP if it's higher
                 currP = prices[R] - prices[L]
