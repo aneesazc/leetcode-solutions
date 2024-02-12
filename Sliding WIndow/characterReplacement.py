@@ -21,3 +21,21 @@ class Solution:
             res = max(res, R - L + 1)
         
         return res  # Return the maximum length of the window found
+
+
+
+class Solution:
+    def characterReplacement(self, s: str, k: int) -> int:
+       L = 0
+       res = 0
+       count = {}
+
+       for R in range(len(s)):
+           count[s[R]] = 1 + count.get(s[R], 0)
+           if (R - L + 1) - max(count.values()) <= k:
+               res = max(res, R - L + 1)
+           else:
+                count[s[L]] -= 1
+                L += 1
+
+       return res
