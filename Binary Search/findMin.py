@@ -22,3 +22,7 @@ class Solution:
                 R = m - 1
 
         return res
+
+# If the value at the middle (mid) is greater than or equal to the value at the left pointer (L), the minimum element is to the right of mid.- So shift the L to m + 1
+# If the value at mid is less than the value at L, the minimum element is to the left of mid.- So shift R to m - 1
+# If the value at L is less than the value at the right pointer (R), the array is already sorted, and the minimum element is at L.
