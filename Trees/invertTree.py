@@ -48,3 +48,6 @@ class Solution:
         self.invertTree(root.left)
         self.invertTree(root.right)
         return root
+
+
+# can be done iteratively using as well- use a STACK
