@@ -23,3 +23,20 @@ class Solution:
         
         # Start the recursion with the root node.
         return validate(root, minVal, maxVal)
+
+
+
+class Solution:
+    def isValidBST(self, root: Optional[TreeNode]) -> bool:
+        minVal = float("-inf")
+        maxVal = float("inf")
+        return self.validate(root, minVal, maxVal)
+
+    def validate(self, node, minVal, maxVal):
+        if not node:
+            return True
+
+        if not (minVal < node.val < maxVal):
+            return False
+
+        return self.validate(node.left, minVal, node.val) and self.validate(node.right, node.val, maxVal)
