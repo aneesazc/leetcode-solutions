@@ -8,12 +8,13 @@ class Solution:
             if not node:
                 return 0  # Base case: Null nodes contribute 0 to the path sum
 
-            # Recursively find the maximum path sum in the left subtree.
-            # If negative, discard it by taking max with 0, as we can opt not to include negative paths.
-            leftMax = max(dfs(node.left), 0)
+            # Recursively find the maximum path sum in the left and right subtrees
+            leftMax = dfs(node.left)
+            rightMax = dfs(node.right)
 
-            # Recursively find the maximum path sum in the right subtree.
-            rightMax = max(dfs(node.right), 0)
+            # Ignore paths with negative sums by setting them to zero (we don't want to reduce the sum of a path)
+            leftMax = max(leftMax, 0)
+            rightMax = max(rightMax, 0)
 
             # Update the global maximum result. It represents the maximum possible path sum WITH SPLIT where
             # the current node acts as the root of the path. This path can include left and/or right children (hence with split)
