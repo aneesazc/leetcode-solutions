@@ -18,6 +18,8 @@
 
 #         return leafPath(root, currSum)
 
+# Use Inorder DFS
+
 class Solution:
     def hasPathSum(self, root: Optional[TreeNode], targetSum: int) -> bool:
         def leafPath(root, currSum):
@@ -41,7 +43,20 @@ When you pass currSum + root.val to the recursive call, it does not change the o
 Each path (left and right) gets a fresh version of currSum based on the current path's history, 
 not affecting each other or the parent calls. Therefore, you don't need to subtract root.val after each recursive call, because each call's currSum is independent.
 '''
+class Solution:
+    def hasPathSum(self, root: Optional[TreeNode], targetSum: int) -> bool:
+        def dfs(node, currSum):
+            if not node:
+                return False
 
+            currSum += node.val
+
+            if not node.left and not node.right:
+                return currSum == targetSum
+
+            return dfs(node.left, currSum) or dfs(node.right, currSum)
+
+        return dfs(root, 0)
 
 
 
