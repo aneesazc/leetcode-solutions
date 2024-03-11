@@ -6,10 +6,13 @@ class Solution:
 
         def dfs(r, c, i):
             # Base case: all characters matched
+            # First, check if we have completed the search by matching the entire word,
+            # this needs to be done before other checks to ensure we recognize success before failure.
             if i == len(word):
                 return True
 
             # Out of bounds, character mismatch, or cell already visited
+            # these are failure conditions, so they come after checking for success.
             if r < 0 or c < 0 or r >= ROWS or c >= COLS or word[i] != board[r][c] or (r, c) in path:
                 return False
 
