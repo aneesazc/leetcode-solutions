@@ -25,3 +25,14 @@ class Solution:
             return res
 
         return dfs(0)
+
+
+# Eg- "126"
+# dfs(0) - "126" returns 3
+# ├── dfs(1) - "26" returns 2
+# │   ├── dfs(2) - "6" [Decoding "2"] returns 1
+# │   │   └── dfs(3) [Decoding "6"] returns 1
+# │   └── dfs(3) [Decoding "26"] returns 1
+# └── dfs(2) - "6" [Decoding "12"] returns 1
+#     └── dfs(3) [Decoding "6"] returns 1
+
