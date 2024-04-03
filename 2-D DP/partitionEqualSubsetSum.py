@@ -83,3 +83,40 @@ class Solution:
         
 
         return dfs(0, 0)
+
+# true dp bottom up to save space
+class Solution:
+    def canPartition(self, nums: List[int]) -> bool:
+        total_sum = sum(nums)
+
+        # If the total sum is odd, it's not possible to split the array into two subsets with equal sum
+        if total_sum % 2 != 0:
+            return False
+
+        # Calculate the target sum each subset must reach (half of the total sum)
+        target = total_sum // 2
+
+        # Initialize a set to keep track of the sums that can be formed with the current subsets
+        dp = set()
+        # Start with a subset sum of 0 (base case)
+        dp.add(0)
+        
+        # Iterate through each number in the array in reverse
+        for i in range(len(nums) - 1, -1, -1):
+            # Prepare a new set for the next state Because a set size cant change during iteration
+            nextDP = set()
+            # Check each sum in the current set
+            for n in dp:
+                # If the current sum is equal to the target, we found a subset that works
+                if n == target:
+                    return True
+                # Add the current number to the current sum and add it to the next state
+                nextDP.add(nums[i] + n)
+                # Also carry forward the current sum without adding the current number
+                nextDP.add(n)
+            # Move to the next state
+            dp = nextDP
+
+        # After processing all numbers, check if the target sum is in our set of achievable sums
+        return True if target in dp else False
+
