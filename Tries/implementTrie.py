@@ -32,6 +32,30 @@ class Trie:
             curr = curr.children[c]
         return True
 
+# the words "hello", "help" and "hi" would be represented as:
+{
+'''
+{
+	"h": {
+		"e": {
+			"l": {
+				"l": {
+					"o": {
+						"*": True
+					}
+				},
+				"p": {
+					"*": True
+				}
+			}
+		},
+		"i": {
+			"*": True
+		}
+	}
+}
+
+'''
 
 # Your Trie object will be instantiated and called as such:
 # obj = Trie()
