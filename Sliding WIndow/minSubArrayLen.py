@@ -6,6 +6,7 @@ class Solution:
 
         for R in range(len(nums)):
             curSum += nums[R]
+            # While current sum is greater than or equal to target, try to shrink the window from the left
             while curSum >= target:
                 # Calculate the length of the current valid window
                 res = min(res, R - L + 1)
